@@ -4,12 +4,14 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    uid = sys.argv[1]
+    u = sys.argv[1]
+
     user = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}".format(uid)
+        "https://jsonplaceholder.typicode.com/users/{}".format(u)
     ).json()
+
     todos = requests.get(
-        "https://jsonplaceholder.typicode.com/todos?userId={}".format(uid)
+        "https://jsonplaceholder.typicode.com/todos?userId={}".format(u)
     ).json()
 
     done = [t for t in todos if t.get("completed")]
