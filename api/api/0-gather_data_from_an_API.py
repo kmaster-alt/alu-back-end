@@ -15,14 +15,15 @@ if __name__ == "__main__":
     ).json()
 
     done = 0
+    total = len(todos)
 
     for t in todos:
-        if t.get("completed") is True:
+        if t.get("completed") == True:
             done += 1
 
     print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), done, len(todos)))
+        user.get("name"), done, total))
 
     for t in todos:
-        if t.get("completed") is True:
+        if t.get("completed") == True:
             print("\t {}".format(t.get("title")))
