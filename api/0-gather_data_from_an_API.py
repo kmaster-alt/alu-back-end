@@ -17,12 +17,12 @@ if __name__ == "__main__":
     done = 0
 
     for t in todos:
-        if t.get("completed"):
+        if t.get("completed") is True:
             done += 1
 
     print("Employee {} is done with tasks({}/{}):".format(
         user.get("name"), done, len(todos)))
 
     for t in todos:
-        if t.get("completed"):
+        if t.get("completed") is True:
             print("\t {}".format(t.get("title")))
