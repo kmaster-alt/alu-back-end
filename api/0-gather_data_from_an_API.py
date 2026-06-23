@@ -14,11 +14,16 @@ if __name__ == "__main__":
         "https://jsonplaceholder.typicode.com/todos?userId={}".format(u)
     ).json()
 
-    done = [t for t in todos if t.get("completed")]
-
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(done), len(todos)))
+    done = 0
+    total = len(todos)
 
     for t in todos:
-        if t.get("completed") is True:
+        if t.get("completed"):
+            done += 1
+
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), done, total))
+
+    for t in todos:
+        if t.get("completed"):
             print("\t {}".format(t.get("title")))
